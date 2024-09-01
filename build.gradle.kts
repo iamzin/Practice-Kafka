@@ -16,16 +16,23 @@ java {
 
 repositories {
     mavenCentral()
+    maven("https://packages.confluent.io/maven/")
 }
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.apache.kafka:kafka-streams")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+    implementation("org.apache.kafka:kafka-streams")
     implementation("org.springframework.kafka:spring-kafka")
+
+    implementation("org.apache.avro:avro:1.10.2")
+    implementation("io.confluent:kafka-avro-serializer:5.5.1")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.kafka:spring-kafka-test")
+
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
